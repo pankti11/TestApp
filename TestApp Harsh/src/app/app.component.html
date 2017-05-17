@@ -1,0 +1,16 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div>
+        <input (change)="fileChanged($event)"
+               type="file" id="fileInput" />
+    </div>
+    <input type="button" id="upload" value="Upload" (click)="onClick()" />
+    <app *ngIf="showdiv" [lines]="lines" [label]="name"> </app>
+
+</body>
+</html>
