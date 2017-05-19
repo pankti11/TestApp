@@ -20,11 +20,13 @@ var MenuComponent = (function () {
     function MenuComponent(service, router) {
         this.service = service;
         this.router = router;
-        this.data = ["jhbshbkfbsdkgvbdsgv", "fdsanflksnkfnlksf", "fchkdfdsf"];
         this.service = service;
         this.router = router;
         this.lines = this.service.getLines();
         console.log("got lines");
+        console.log(this.lines);
+        this.data = this.lines;
+        console.log("data");
         console.log(this.lines);
     }
     MenuComponent.prototype.send = function () {

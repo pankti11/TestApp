@@ -9,5 +9,8 @@ function drag(ev) {
 function drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
+
+    console.log("drageed text")
+    console.log(document.getElementById(data).value);
     ev.target.appendChild(document.getElementById(data));
 }

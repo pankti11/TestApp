@@ -1,6 +1,5 @@
 ﻿
     <div>
-        <input (change)="fileChanged($event)"
-               type="file" id="fileInput" />
+        <input type="file" id="fileInput" />
     </div>
-    <input type="button" id="upload" value="Upload" (click)="onClick()" />
+    <button id="upload" (click)="uploadData()">upload</button>

@@ -29,14 +29,18 @@ var DataService = (function () {
         return this.http.get('/Home/GetData').map(function (res) { return res.json().Name; });
     };
     DataService.prototype.getFileData = function (filePath) {
-        var searchParams = new http_1.URLSearchParams();
-        searchParams.set("path", filePath); //"C:/Users/310285056/Desktop/LeavingConfigMode.feature" );
-        var options = new http_1.RequestOptions({
-            search: searchParams
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            var searchParams = new http_1.URLSearchParams();
+            searchParams.set("path", filePath); //"C:/Users/310285056/Desktop/LeavingConfigMode.feature" );
+            var options = new http_1.RequestOptions({
+                search: searchParams
+            });
+            var res = _this.http
+                .get('/Home/ReadFile', options)
+                .map(function (res) { return res.json().data; });
+            resolve(res);
         });
-        return this.http
-            .get('/Home/ReadFile', options)
-            .map(function (res) { return res.json().data; });
     };
     // return this.http.get('/Home/ReadFile', "C:/Users/310285056/Desktop/LeavingConfigMode.feature").map((res: Response) => res.json().content);
     DataService.prototype.savevar = function (lines, name) {

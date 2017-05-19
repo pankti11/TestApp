@@ -27,21 +27,6 @@ var HomeComponent = (function () {
         this.service = service;
         this.router = router;
     }
-    HomeComponent.prototype.initiallCall = function () {
-        var _this = this;
-        this.dataService.getItems()
-            .subscribe(function (data) {
-            //alert(data);
-            _this.name = data;
-            console.log(_this.name);
-        });
-    };
-    HomeComponent.prototype.getFileData = function (path) {
-        var _this = this;
-        this.dataService.getFileData(path).subscribe(function (data) {
-            _this.service.setLines(JSON.parse(data));
-        });
-    };
     HomeComponent.prototype.fileChanged = function (event) {
         var target = event.target || event.srcElement;
         console.log(target.files);
@@ -49,11 +34,17 @@ var HomeComponent = (function () {
         var file = input.files[0];
         console.log(file);
     };
-    HomeComponent.prototype.onClick = function () {
+    HomeComponent.prototype.uploadData = function () {
+        var a = null;
         var ele = document.getElementById('fileInput');
         var path = ele.value;
-        this.getFileData(path);
-        this.router.navigate(['/menu']);
+        var pro = this.dataService.getFileData(path);
+        pro.then(function (data) {
+            this.service.setLines(JSON.parse(data));
+            this.router.navigate(['/menu']);
+        }, function () {
+            console.log("error");
+        });
     };
     return HomeComponent;
 }());

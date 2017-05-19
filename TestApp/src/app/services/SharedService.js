@@ -19,6 +19,7 @@ var SharedService = (function () {
     };
     SharedService.prototype.setLines = function (comingData) {
         this.lines = comingData;
+        return "sucess";
     };
     SharedService.prototype.getLines = function () {
         console.log(this.lines);

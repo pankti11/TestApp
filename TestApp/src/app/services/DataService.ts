@@ -22,15 +22,19 @@ export class DataService {
     }
 
     getFileData(filePath: string) {
+        return new Promise<any>((resolve,reject) => {
         let searchParams = new URLSearchParams();
         searchParams.set("path", filePath);//"C:/Users/310285056/Desktop/LeavingConfigMode.feature" );
         let options = new RequestOptions({
             search: searchParams
         });
-        return this.http
+        var res = this.http
             .get('/Home/ReadFile', options)
             .map((res: Response) => res.json().data);
-    }
+
+        resolve(res);
+    });
+}
     // return this.http.get('/Home/ReadFile', "C:/Users/310285056/Desktop/LeavingConfigMode.feature").map((res: Response) => res.json().content);
     savevar(lines: any, name: string) {
         this.sharedVar = lines;

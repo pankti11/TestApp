@@ -21,6 +21,7 @@ export class SharedService {
 
     setLines(comingData: any) {
         this.lines = comingData;
+        return "sucess";
     }
 
     getLines(): any{

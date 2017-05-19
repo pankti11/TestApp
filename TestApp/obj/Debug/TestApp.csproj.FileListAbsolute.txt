@@ -141,6 +141,5 @@ C:\Users\310285600\Documents\Visual Studio 2017\Projects\TestApp\TestApp\bin\Mic
 C:\Users\310285600\Documents\Visual Studio 2017\Projects\TestApp\TestApp\bin\Microsoft.AI.ServerTelemetryChannel.xml
 C:\Users\310285600\Documents\Visual Studio 2017\Projects\TestApp\TestApp\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\310285600\Documents\Visual Studio 2017\Projects\TestApp\TestApp\bin\Microsoft.AI.Web.xml
-C:\Users\310285600\Documents\Visual Studio 2017\Projects\TestApp\TestApp\obj\Debug\TestApp.csprojResolveAssemblyReference.cache
 C:\Users\310285600\Documents\Visual Studio 2017\Projects\TestApp\TestApp\obj\Debug\TestApp.dll
 C:\Users\310285600\Documents\Visual Studio 2017\Projects\TestApp\TestApp\obj\Debug\TestApp.pdb
