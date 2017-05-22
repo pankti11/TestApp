@@ -8,11 +8,20 @@ export interface myData {
 @Injectable()
 export class SharedService {
     sharingData: string;
+    savedLines:string;
     lines: any;
 
     saveData(str: string) {
         console.log('save data function called' + str);
         this.sharingData = str;
+    }
+
+    saveLines(comingLines:string){
+        this.savedLines = comingLines;
+    }
+
+    getSavedLines():string{
+        return this.savedLines;
     }
 
     getData(): string {

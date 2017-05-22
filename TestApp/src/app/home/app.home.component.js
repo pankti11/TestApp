@@ -13,20 +13,43 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var DataService_1 = require("../services/DataService");
-var SharedService_1 = require("../services/SharedService");
 var core_2 = require("@angular/core");
 var router_1 = require("@angular/router");
+var DataService_1 = require("../services/DataService");
+var SharedService_1 = require("../services/SharedService");
 var HomeComponent = (function () {
-    function HomeComponent(dataService, service, router) {
+    function HomeComponent(dataService, sharedService, router) {
         this.dataService = dataService;
-        this.service = service;
+        this.sharedService = sharedService;
         this.router = router;
         this.showdiv = false;
+        this.header = [];
         this.dataService = dataService;
-        this.service = service;
-        this.router = router;
     }
+    HomeComponent.prototype.initiallCall = function () {
+        var _this = this;
+        this.dataService.getItems()
+            .subscribe(function (data) {
+            //alert(data);
+            _this.name = data;
+            console.log(_this.name);
+        });
+    };
+    HomeComponent.prototype.getFileData = function (path) {
+        var _this = this;
+        this.dataService.getFileData(path).subscribe(function (data) {
+            var content = data.data;
+            var head = data.header;
+            //var lines = content.split(",");
+            //let cont = ;
+            // let hd = JSON.parse(head);
+            var obj = JSON.parse(content);
+            //this.header = hd;
+            _this.sharedService.setLines(obj);
+            console.log("Done");
+            _this.router.navigate(['/data']);
+        });
+    };
     HomeComponent.prototype.fileChanged = function (event) {
         var target = event.target || event.srcElement;
         console.log(target.files);
@@ -34,17 +57,15 @@ var HomeComponent = (function () {
         var file = input.files[0];
         console.log(file);
     };
-    HomeComponent.prototype.uploadData = function () {
-        var a = null;
+    HomeComponent.prototype.onClick = function () {
         var ele = document.getElementById('fileInput');
         var path = ele.value;
-        var pro = this.dataService.getFileData(path);
-        pro.then(function (data) {
-            this.service.setLines(JSON.parse(data));
-            this.router.navigate(['/menu']);
-        }, function () {
-            console.log("error");
-        });
+        if (path === "") {
+            alert("Please choose file to upload");
+        }
+        else {
+            this.getFileData(path);
+        }
     };
     return HomeComponent;
 }());

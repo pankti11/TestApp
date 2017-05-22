@@ -14,6 +14,12 @@ var SharedService = (function () {
         console.log('save data function called' + str);
         this.sharingData = str;
     };
+    SharedService.prototype.saveLines = function (comingLines) {
+        this.savedLines = comingLines;
+    };
+    SharedService.prototype.getSavedLines = function () {
+        return this.savedLines;
+    };
     SharedService.prototype.getData = function () {
         return this.sharingData;
     };

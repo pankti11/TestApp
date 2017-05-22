@@ -8,14 +8,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
-var router_1 = require("./router");
-var SharedService_1 = require("./services/SharedService");
-var http_1 = require("@angular/http");
-var app_menuComponent_1 = require("./menu/app.menuComponent");
-var app_component_editor_1 = require("./editor/app.component.editor");
-var app_spa_component_1 = require("./spa/app.spa.component");
-var app_home_component_1 = require("./home/app.home.component");
+var app_component_1 = require("./app.component");
 var DataService_1 = require("./services/DataService");
+var http_1 = require("@angular/http");
+var app_mainpage_component_1 = require("./app.mainpage/app.mainpage.component");
+var highlight_directive_1 = require("./app.mainpage/highlight.directive");
+var router_1 = require("./router");
+var app_home_component_1 = require("./home/app.home.component");
+var SharedService_1 = require("./services/SharedService");
+var editor_component_1 = require("./editor/editor.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -24,9 +25,9 @@ var AppModule = (function () {
 AppModule = __decorate([
     core_1.NgModule({
         imports: [platform_browser_1.BrowserModule, http_1.HttpModule, router_1.routing],
-        declarations: [app_spa_component_1.SPAComponent, app_menuComponent_1.MenuComponent, app_component_editor_1.EditorComponent, app_home_component_1.HomeComponent],
-        bootstrap: [app_spa_component_1.SPAComponent],
-        providers: [SharedService_1.SharedService, DataService_1.DataService]
+        declarations: [app_component_1.AppComponent, app_mainpage_component_1.MainPageComponent, highlight_directive_1.HighlightDirective, app_home_component_1.HomeComponent, editor_component_1.EditorComponent],
+        bootstrap: [app_component_1.AppComponent],
+        providers: [DataService_1.DataService, SharedService_1.SharedService]
     })
 ], AppModule);
 exports.AppModule = AppModule;

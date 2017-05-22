@@ -7,16 +7,16 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var SPAComponent = (function () {
-    function SPAComponent() {
+var AppComponent = (function () {
+    function AppComponent() {
     }
-    return SPAComponent;
+    return AppComponent;
 }());
-SPAComponent = __decorate([
+AppComponent = __decorate([
     core_1.Component({
-        selector: 'user-app',
-        templateUrl: 'app/spa/app.spa.component.html'
+        selector: 'my-app',
+        templateUrl: './app.component.html'
     })
-], SPAComponent);
-exports.SPAComponent = SPAComponent;
-//# sourceMappingURL=app.spa.component.js.map
+], AppComponent);
+exports.AppComponent = AppComponent;
+//# sourceMappingURL=app.component.js.map

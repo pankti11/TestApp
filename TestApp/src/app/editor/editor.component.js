@@ -14,25 +14,27 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var core_2 = require("@angular/core");
-var SharedService_1 = require("../services/SharedService");
 var router_1 = require("@angular/router");
+var SharedService_1 = require("../services/SharedService");
 var EditorComponent = (function () {
-    function EditorComponent(service, router) {
-        this.service = service;
+    function EditorComponent(sharedService, router) {
+        this.sharedService = sharedService;
         this.router = router;
-        this.service = service;
-        this.router = router;
-        this.recievedData = this.service.getData();
-        console.log(this.recievedData);
+        this.sharedService = sharedService;
+        this.menuData = this.sharedService.getSavedLines();
     }
+    EditorComponent.prototype.submit = function (data) {
+        alert("submission completed");
+    };
     return EditorComponent;
 }());
 EditorComponent = __decorate([
     core_1.Component({
-        templateUrl: 'app/editor/app.component.editor.html'
+        selector: 'my-editor',
+        templateUrl: './app.component.editor.html'
     }),
     __param(0, core_2.Inject(SharedService_1.SharedService)), __param(1, core_2.Inject(router_1.Router)),
     __metadata("design:paramtypes", [SharedService_1.SharedService, router_1.Router])
 ], EditorComponent);
 exports.EditorComponent = EditorComponent;
-//# sourceMappingURL=app.component.editor.js.map
+//# sourceMappingURL=editor.component.js.map

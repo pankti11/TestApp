@@ -29,17 +29,20 @@ var DataService = (function () {
         return this.http.get('/Home/GetData').map(function (res) { return res.json().Name; });
     };
     DataService.prototype.getFileData = function (filePath) {
-        var _this = this;
-        return new Promise(function (resolve, reject) {
-            var searchParams = new http_1.URLSearchParams();
-            searchParams.set("path", filePath); //"C:/Users/310285056/Desktop/LeavingConfigMode.feature" );
-            var options = new http_1.RequestOptions({
-                search: searchParams
-            });
-            var res = _this.http
-                .get('/Home/ReadFile', options)
-                .map(function (res) { return res.json().data; });
-            resolve(res);
+        var lines;
+        var searchParams = new http_1.URLSearchParams();
+        searchParams.set("path", filePath); //"C:/Users/310285056/Desktop/LeavingConfigMode.feature" );
+        var options = new http_1.RequestOptions({
+            search: searchParams
+        });
+        return this.http
+            .get('/Home/ReadFile', options)
+            .map(function (res) {
+            var data = res.json();
+            if (data) {
+                lines = data;
+            }
+            return lines;
         });
     };
     // return this.http.get('/Home/ReadFile', "C:/Users/310285056/Desktop/LeavingConfigMode.feature").map((res: Response) => res.json().content);

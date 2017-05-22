@@ -1,12 +1,16 @@
 ﻿import { Routes, RouterModule } from '@angular/router';
-import { EditorComponent } from './editor/app.component.editor';
-import { MenuComponent } from './menu/app.menuComponent';
+
 import { HomeComponent } from './home/app.home.component'; 
+import { MainPageComponent } from './app.mainpage/app.mainpage.component';
+import {EditorComponent} from './editor/editor.component';
+
 
 const appRoutes: Routes = [
-    { path: 'menu', component: MenuComponent },
-    { path: 'editor', component: EditorComponent },
-    { path: 'home', component: HomeComponent }
+    { path: 'home', component: HomeComponent },
+    { path: 'data', component: MainPageComponent },
+    { path: 'editor', component:  EditorComponent},
+    { path: '', pathMatch: 'full', redirectTo: 'home' }
 ];
+
 
 export const routing = RouterModule.forRoot(appRoutes);
