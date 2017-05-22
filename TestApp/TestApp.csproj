@@ -185,8 +185,19 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="src\app\app.component.html" />
+    <Content Include="src\app\app.component.js" />
+    <Content Include="src\app\app.component.spec.js" />
+    <Content Include="src\app\app.mainpage\dragdrop.js" />
+    <Content Include="src\app\app.mainpage\mainpage.css" />
+    <Content Include="src\app\app.mainpage\mainpage.html" />
+    <Content Include="src\app\app.module.js" />
     <Content Include="src\app\editor\app.component.editor.html" />
+    <Content Include="src\app\home\app.home.component.html" />
+    <Content Include="src\app\home\app.home.component.js" />
+    <Content Include="src\app\router.js" />
     <Content Include="src\favicon.ico" />
+    <Content Include="src\images\loader.gif" />
     <Content Include="src\index.html" />
     <Content Include="src\styles.css" />
     <Content Include="src\systemjs-angular-loader.js" />
@@ -207,6 +218,11 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="src\tsconfig.json" />
+    <Content Include="src\app\home\app.home.component.js.map" />
+    <Content Include="src\app\app.component.js.map" />
+    <Content Include="src\app\app.component.spec.js.map" />
+    <Content Include="src\app\app.module.js.map" />
+    <Content Include="src\app\router.js.map" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -229,10 +245,14 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="src\app\app.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\app.component.ts" />
+    <TypeScriptCompile Include="src\app\app.mainpage\app.mainpage.component.ts" />
+    <TypeScriptCompile Include="src\app\app.mainpage\highlight.directive.ts" />
     <TypeScriptCompile Include="src\app\app.module.ts" />
     <TypeScriptCompile Include="src\app\editor\editor.component.ts" />
+    <TypeScriptCompile Include="src\app\home\app.home.component.ts" />
     <TypeScriptCompile Include="src\app\router.ts" />
-    <TypeScriptCompile Include="src\app\TodoItem.ts" />
     <TypeScriptCompile Include="src\main.ts" />
   </ItemGroup>
   <ItemGroup>
