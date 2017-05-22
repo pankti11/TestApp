@@ -17,7 +17,19 @@
         padding-top: 70px;
     }
 </style>
-<div class="panelStyle">
+
+<script>
+    function changeColor() {
+        debugger;
+        var ele = document.getElementsByTagName('p');
+        for (var p in ele) {
+            var text = p.innerHTML;
+            console.log(text);
+        }
+    }
+
+</script>
+<div class="panelStyle" onloadeddata="changeColor()">
     <div class="panel panel-primary">
         <div class="panel-heading">
             <h3 class="panel-title">Panel primary</h3>
@@ -26,20 +38,19 @@
 
             <div class="container-fluid">
                 <div class="row text-center rowstyle">
-                    <div class="col-lg-6 divblock">
+                    <div class="col-lg-6 divblock" style="overflow-y:scroll; overflow-x:auto">
                         <ul class="list-group">
-                            <li *ngFor="let line of lines; let i = index"  draggable="true" ondragstart="drag(event)" class="list-group-item" (mouseenter)="showthis(line)" (mouseout)="hidethis(line)" id="{{line}}" myHighlight>
-                                <p id="{{i}}">{{line}}</p>
+                            <li *ngFor="let line of lines; let i = index"  draggable="true" ondragstart="drag(event)" class="list-group-item"  id="{{line}}"  myHighlight>
+                                <p id="{{i}}" (mouseenter)="showthis($event)" (mouseout)="hidethis($event)" >{{line}}</p>
                             </li>
                         </ul>
                     </div>
                     <div id="dropedContent" ondrop="drop(event)" ondragover="allowDrop(event)" class="col-lg-6 text-center divblock">
-                       
 
                     </div>
                 </div>
                 <div class="row text-center rowstyle" ng-bi>
-                    <button class="btn btn-success" (click)="send()" >submit</button>
+                    <button class="btn btn-success" (click)="send()">Submit</button>
                 </div>
             </div>
         </div>
@@ -50,7 +61,7 @@
 <hr />
 <hr />
 
-<div id="testDiv"></div>
+
 
 
 <div id="tooltip"></div>

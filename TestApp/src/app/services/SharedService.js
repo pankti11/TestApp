@@ -14,12 +14,6 @@ var SharedService = (function () {
         console.log('save data function called' + str);
         this.sharingData = str;
     };
-    SharedService.prototype.saveLines = function (comingLines) {
-        this.savedLines = comingLines;
-    };
-    SharedService.prototype.getSavedLines = function () {
-        return this.savedLines;
-    };
     SharedService.prototype.getData = function () {
         return this.sharingData;
     };
@@ -30,6 +24,20 @@ var SharedService = (function () {
     SharedService.prototype.getLines = function () {
         console.log(this.lines);
         return this.lines;
+    };
+    SharedService.prototype.setHeader = function (comingData) {
+        this.header = comingData;
+        return "sucess";
+    };
+    SharedService.prototype.getHeader = function () {
+        console.log(this.header);
+        return this.header;
+    };
+    SharedService.prototype.saveLines = function (comingLines) {
+        this.savedLines = comingLines;
+    };
+    SharedService.prototype.getSavedLines = function () {
+        return this.savedLines;
     };
     return SharedService;
 }());

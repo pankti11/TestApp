@@ -9,7 +9,7 @@ import { RouterModule } from '@angular/router';
 import { routing } from './router';
 import { HomeComponent } from './home/app.home.component';
 import { SharedService } from './services/SharedService';
-import {EditorComponent} from './editor/editor.component';
+import { EditorComponent } from './editor/editor.component';
 
 @NgModule({
     imports: [BrowserModule, HttpModule, routing],

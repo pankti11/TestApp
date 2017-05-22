@@ -8,7 +8,7 @@ var appRoutes = [
     { path: 'home', component: app_home_component_1.HomeComponent },
     { path: 'data', component: app_mainpage_component_1.MainPageComponent },
     { path: 'editor', component: editor_component_1.EditorComponent },
-    { path: '', pathMatch: 'full', redirectTo: 'home' }
+    { path: '', pathMatch: "prefix", redirectTo: '/home' }
 ];
 exports.routing = router_1.RouterModule.forRoot(appRoutes);
 //# sourceMappingURL=router.js.map

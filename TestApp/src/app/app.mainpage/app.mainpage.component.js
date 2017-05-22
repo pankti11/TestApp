@@ -15,8 +15,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var DataService_1 = require("../services/DataService");
 var core_2 = require("@angular/core");
-var router_1 = require("@angular/router");
 var SharedService_1 = require("../services/SharedService");
+var router_1 = require("@angular/router");
 var MainPageComponent = (function () {
     function MainPageComponent(dataService, sharedService, router) {
         this.dataService = dataService;
@@ -24,10 +24,34 @@ var MainPageComponent = (function () {
         this.router = router;
         this.showTooltip = false;
         this.dataService = dataService;
-        this.router = router;
         this.lines = this.sharedService.getLines();
-        console.log(this.lines);
+        this.header = this.sharedService.getHeader();
+        console.log(this.header);
     }
+    MainPageComponent.prototype.showthis = function (event) {
+        var x = event.clientX;
+        var y = event.clientY;
+        var tooltip = document.getElementById("tooltip");
+        //var obj = document.getElementById(id);
+        tooltip.innerHTML = this.createText(this.header); //this.header;//obj.innerHTML;
+        tooltip.style.display = "block";
+        tooltip.style.top = y + "px";
+        tooltip.style.left = x + "px";
+    };
+    MainPageComponent.prototype.hidethis = function (event) {
+        var tooltip = document.getElementById("tooltip");
+        tooltip.style.display = "none";
+        tooltip.style.top = "-9999px";
+        tooltip.style.left = "-9999px";
+    };
+    MainPageComponent.prototype.createText = function (data) {
+        var htmlText = "";
+        //htmlText += '<div>';
+        for (var key in data) {
+            htmlText += data[key] + '<br\>';
+        }
+        return htmlText;
+    };
     MainPageComponent.prototype.send = function () {
         var dropedContent = document.getElementById('dropedContent');
         var text = dropedContent.innerText;
@@ -40,29 +64,6 @@ var MainPageComponent = (function () {
         }
         this.sharedService.saveLines(this.dragedLines.join("\n"));
         this.router.navigate(['/editor']);
-    };
-    MainPageComponent.prototype.showthis = function (id) {
-        var tooltip = document.getElementById("tooltip");
-        var obj = document.getElementById(id);
-        tooltip.innerHTML = this.createText(this.header); //this.header;//obj.innerHTML;
-        tooltip.style.display = "block";
-        tooltip.style.top = obj.offsetTop + obj.offsetHeight + "px";
-        tooltip.style.left = obj.offsetLeft + obj.innerHTML.length + "px";
-    };
-    MainPageComponent.prototype.hidethis = function (id) {
-        var tooltip = document.getElementById("tooltip");
-        var obj = document.getElementById(id);
-        tooltip.style.display = "none";
-        tooltip.style.top = "-9999px";
-        tooltip.style.left = "-9999px";
-    };
-    MainPageComponent.prototype.createText = function (data) {
-        var htmlText = "";
-        //htmlText += '<div>';
-        for (var key in data) {
-            htmlText += data[key] + '<br\>';
-        }
-        return htmlText;
     };
     return MainPageComponent;
 }());

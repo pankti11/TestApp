@@ -44,9 +44,12 @@ var HomeComponent = (function () {
             //let cont = ;
             // let hd = JSON.parse(head);
             var obj = JSON.parse(content);
+            var header = JSON.parse(head);
             //this.header = hd;
             _this.sharedService.setLines(obj);
+            _this.sharedService.setHeader(header);
             console.log("Done");
+            _this.hideLoad();
             _this.router.navigate(['/data']);
         });
     };
@@ -64,8 +67,17 @@ var HomeComponent = (function () {
             alert("Please choose file to upload");
         }
         else {
+            this.showLoad();
             this.getFileData(path);
         }
+    };
+    HomeComponent.prototype.showLoad = function () {
+        var load = document.getElementById('loading');
+        load.style.display = "block";
+    };
+    HomeComponent.prototype.hideLoad = function () {
+        var load = document.getElementById('loading');
+        load.style.display = "none";
     };
     return HomeComponent;
 }());

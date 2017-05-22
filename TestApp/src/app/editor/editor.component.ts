@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+﻿import { Component } from '@angular/core';
 import { Http } from '@angular/http';
 import { Inject } from "@angular/core";
 import { Input } from "@angular/core";
@@ -24,4 +24,3 @@ export class EditorComponent {
     alert("submission completed");
     }
 }
-

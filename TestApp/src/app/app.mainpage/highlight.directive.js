@@ -17,7 +17,7 @@ var HighlightDirective = (function () {
         this.el = el;
     }
     HighlightDirective.prototype.onMouseEnter = function () {
-        this.highlight('yellow');
+        this.highlight('#B3E5FC');
     };
     HighlightDirective.prototype.onMouseLeave = function () {
         this.highlight('white');

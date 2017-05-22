@@ -14,12 +14,3 @@ function drop(ev) {
     console.log(document.getElementById(data).value);
     ev.target.appendChild(document.getElementById(data));
 }
-
-function getDropedText() {
-
-    var dropedContent = document.getElementById('accessDropedText');
-    var testDiv = document.getElementById('testDiv');
-    testDiv.innerHTML = dropedContent.innerHTML;
-
-
-}

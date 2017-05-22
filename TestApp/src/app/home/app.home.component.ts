@@ -8,6 +8,10 @@ interface lines {
 
 }
 
+interface header {
+
+}
+
 @Component({
     templateUrl: './app.home.component.html'
 })
@@ -39,10 +43,14 @@ export class HomeComponent {
             //let cont = ;
             // let hd = JSON.parse(head);
             let obj: lines = JSON.parse(content);
+            let header: header = JSON.parse(head);
             //this.header = hd;
             this.sharedService.setLines(obj);
+            this.sharedService.setHeader(header);
             console.log("Done");
+            this.hideLoad();
             this.router.navigate(['/data']);
+
         });
     }
 
@@ -61,9 +69,21 @@ export class HomeComponent {
             alert("Please choose file to upload");
         }
         else {
+            this.showLoad();
             this.getFileData(path);
+            
         }
        
+    }
+
+    showLoad() {
+        var load = document.getElementById('loading');
+        load.style.display = "block";
+    }
+
+    hideLoad() {
+        var load = document.getElementById('loading');
+        load.style.display = "none";
     }
 
 
