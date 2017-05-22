@@ -1,0 +1,67 @@
+﻿
+<style>
+    .divblock {
+        border: 1px solid #aaaaaa;
+        height: 400px;
+    }
+
+    .rowstyle {
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 10px;
+    }
+
+    .panelStyle {
+        padding-left: 50px;
+        padding-right: 50px;
+        padding-top: 70px;
+    }
+</style>
+
+<script>
+    function changeColor() {
+        debugger;
+        var ele = document.getElementsByTagName('p');
+        for (var p in ele) {
+            var text = p.innerHTML;
+            console.log(text);
+        }
+    }
+
+</script>
+<div class="panelStyle" onloadeddata="changeColor()">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Panel primary</h3>
+        </div>
+        <div class="panel-body">
+
+            <div class="container-fluid">
+                <div class="row text-center rowstyle">
+                    <div class="col-lg-6 divblock" style="overflow-y:scroll; overflow-x:auto">
+                        <ul class="list-group">
+                            <li *ngFor="let line of lines; let i = index"  draggable="true" ondragstart="drag(event)" class="list-group-item"  id="{{line}}"  myHighlight>
+                                <p id="{{i}}" (mouseenter)="showthis($event)" (mouseout)="hidethis($event)" >{{line}}</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="dropedContent" ondrop="drop(event)" ondragover="allowDrop(event)" class="col-lg-6 text-center divblock">
+
+                    </div>
+                </div>
+                <div class="row text-center rowstyle" ng-bi>
+                    <button class="btn btn-success" (click)="send()">submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<hr />
+<hr />
+
+
+
+
+<div id="tooltip"></div>

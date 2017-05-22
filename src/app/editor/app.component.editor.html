@@ -1,0 +1,9 @@
+﻿<div class="form-group">
+    <label class="col-lg-2 control-label" for="textArea">Preview</label>
+    <div class="col-lg-80">
+        <textarea class="form-control" #textArea rows="20">{{menuData}}</textarea>
+        <span class="textarea-btn">
+            <button class="btn btn-default" type="button" (click)="submit(textArea.value)">Button</button>
+        </span>
+    </div>
+</div>
